@@ -11,6 +11,7 @@ The tool takes a programming problem's text as input and predicts:
 The project is built using a dataset of **4,112 programming problems**.
 * **Text Features:** Title, Description, Input Description, Output Description.
 * **Target Variables:** `problem_class` (Classification) and `problem_score` (Regression).
+* DATASET resource:https://github.com/AREEG94FAHAD/TaskComplexityEval-24
 
 ## 🛠️ Technical Implementation
 
