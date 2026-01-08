@@ -3,6 +3,7 @@
 AutoJudge is an intelligent system designed to automatically predict the difficulty class and numerical score of programming problems. By analyzing the textual description, input constraints, and output requirements, it provides an automated alternative to manual human judgment used by platforms like Codeforces and Kattis.
 
 ##DEMO video - https://drive.google.com/file/d/1jK5fDK97qq-YmvfhQULyXqu1a6c2FjwW/view?usp=sharing
+##REPORT LINK - https://drive.google.com/file/d/1J67h8-Vh85Ojsq9lVgtYYOk5JfWZso4T/view?usp=sharing
 
 ## 🚀 Project Overview
 The tool takes a programming problem's text as input and predicts:
