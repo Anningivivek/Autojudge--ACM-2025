@@ -1,3 +1,45 @@
-⚖️ AutoJudge: Programming Problem Difficulty PredictorAutoJudge is an intelligent system that automatically predicts the difficulty level and numerical score of programming problems. By analyzing the textual content of a problem—including the description, input constraints, and output requirements—it provides an automated alternative to manual human labeling used by platforms like Codeforces and Kattis.🚀 Project OverviewThe goal is to build a tool where a user can paste a problem description and receive:Problem Class: A categorical classification (Easy, Medium, or Hard).Problem Score: A predicted numerical difficulty score.📊 DatasetThe project uses a dataset consisting of 4,112 unique programming problems.Text Features: Title, Description, Input Description, Output Description.Target Variables: problem_class and problem_score.🛠️ Technical Implementation1. Data PreprocessingText Integration: Combined the description, input, and output text fields into a single corpus.Cleaning: Implemented a robust cleaning pipeline to remove HTML tags, handle special characters, and convert text to lowercase.LaTeX Handling: Replaced complex mathematical delimiters (e.g., $...$) with a standard MATH_EXPRESSION placeholder to preserve the context of mathematical complexity without breaking the vectorizer.2. Feature ExtractionNLP Method: Utilized TF-IDF (Term Frequency-Inverse Document Frequency).Parameters: Extracted the top 2,500 features while removing standard English stop words to focus on meaningful programming keywords.3. Machine Learning ModelsBased on model evaluation, Random Forest was selected as the final architecture for both tasks:Classification: Random Forest Classifier.Regression: Random Forest Regressor.📈 Performance ResultsBased on the latest test run, the models achieved the following metrics:TaskModelPerformance MetricClassificationRandom Forest50% AccuracyRegressionRandom Forest1.73 MAE (Mean Absolute Error)RegressionRandom Forest2.07 RMSE (Root Mean Squared Error)💻 UsageLocal InstallationInstall dependencies:Bashpip install pandas numpy scikit-learn nltk streamlit
-Ensure the following serialized files are in your directory:classifier.pklregressor.pklvectorizer.pklRun the Web Interface:Bashstreamlit run app.py
-📂 Repository StructureAuto_juge.ipynb: The complete data science pipeline (Cleaning, EDA, Training).app.py: Streamlit web application.*.pkl: Trained model artifacts.
+# ⚖️ AutoJudge: Programming Problem Difficulty Predictor
+
+AutoJudge is an intelligent system designed to automatically predict the difficulty class and numerical score of programming problems. By analyzing the textual description, input constraints, and output requirements, it provides an automated alternative to manual human judgment used by platforms like Codeforces and Kattis.
+
+## 🚀 Project Overview
+The tool takes a programming problem's text as input and predicts:
+1.  **Problem Class:** Categorization into **Easy, Medium, or Hard**.
+2.  **Problem Score:** A precise **numerical difficulty score**.
+
+## 📊 Dataset
+The project is built using a dataset of **4,112 programming problems**.
+* **Text Features:** Title, Description, Input Description, Output Description.
+* **Target Variables:** `problem_class` (Classification) and `problem_score` (Regression).
+
+## 🛠️ Technical Implementation
+
+### 1. Data Preprocessing
+* **Text Integration:** Combined separate text fields into a single `combined_text` feature.
+* **Cleaning:** Removed HTML tags, converted to lowercase, and stripped special characters.
+* **LaTeX Handling:** Replaced complex mathematical delimiters (e.g., `$x^2$`) with a `MATH_EXPRESSION` placeholder to preserve context while reducing noise.
+
+### 2. Feature Extraction
+* **Method:** TF-IDF (Term Frequency-Inverse Document Frequency) Vectorization.
+* **Configuration:** Extracted the top **2,500 features** and filtered out English stop words.
+
+### 3. Machine Learning Models
+After comparing multiple algorithms (Logistic Regression, SVM, Gradient Boosting), **Random Forest** was selected as the final architecture for its superior performance:
+* **Classification:** Random Forest Classifier.
+* **Regression:** Random Forest Regressor.
+
+## 📈 Performance Results
+The models achieved the following results on the test set:
+
+| Task | Model | Metric | Result |
+| :--- | :--- | :--- | :--- |
+| **Classification** | Random Forest | Accuracy | **50%** |
+| **Regression** | Random Forest | Mean Absolute Error (MAE) | **1.73** |
+| **Regression** | Random Forest | RMSE | **2.07** |
+
+## 💻 Usage & Installation
+
+### Prerequisites
+Ensure you have Python 3.8+ installed. You will need the following libraries:
+```bash
+pip install pandas numpy scikit-learn nltk streamlit
