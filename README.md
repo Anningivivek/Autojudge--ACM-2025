@@ -37,6 +37,34 @@ The models achieved the following results on the test set:
 | **Regression** | Random Forest | Mean Absolute Error (MAE) | **1.73** |
 | **Regression** | Random Forest | RMSE | **2.07** |
 
+## Important Note About Model Files
+
+The file **`regressor.pkl`** is **not included** in this repository.
+
+**Reason:**  
+GitHub does not allow uploading files larger than **25 MB**, and the regression model exceeds this limit.
+
+The project has been **fully tested locally**, and instructions are provided below to run the project successfully.
+
+---
+
+##  How to Run the Project (Evaluator Instructions)
+
+### STEP 1 : Download the repository
+
+git clone <YOUR_GITHUB_REPO_LINK>
+cd AutoJudge
+
+### STEP 2: Install Dependencies
+pip install -r requirements.txt
+
+### STEP 3 :Add the Regression Model
+Place the file difficulty_regressor.pkl in the same folder as app.py.
+link for regressor.pkl - https://drive.google.com/file/d/1nienkJiMkbrSHTZkKI0H9AZdgPaaC5Nu/view?usp=drive_link
+
+### STEP 4 : Run the command in terminal
+streamlit run app.py
+
 ## 💻 Usage & Installation
 
 ### Prerequisites
